@@ -1,0 +1,22 @@
+server:
+  port: 9001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: zuul
+
+zuul:
+  ignored-services: '*'
+  routes:
+    client:
+      service-id: client
+      path: /client/**
+    server:
+      service-id: server
+      path: /server/**
+
